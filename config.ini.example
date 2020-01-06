@@ -1,0 +1,27 @@
+[cylance]
+host=https://protectapi-<region code>.cylance.com # (i.e. https://protectapi-euc1.cylance.com)
+# You need to create an "integration" in the Cylance web console to get the below 3 values
+# Once you are logged on, you can go to Settings -> Integrations, here you can add a new application
+# The application needs read an delete privileges for devices
+appid=27307657-87c6-4c76-ae06-c028e1db8971
+tenantid=7d5a0977-3ebd-422e-a999-ad607be0e0ec
+appsecret=b91a34b5-d5d7-4d6b-8539-890a30ab523e
+
+[smtp]
+# An email alert will be send out if the deprovisioner can't delete the system or if it can not find the system
+smtpauth=True
+smtphost=smtp.office365.com
+smtpuser=<username for smtp authentication>
+smtppass=<password for user authentication>
+fromuser=<email address that sends the alert email>
+touser=<email address that receives the alert email>
+
+[general]
+# set to True when this script is automatically triggered based on eventid 4743 in the Windows task scheduler
+# The event details will have the hostname of the computer, but this name is appended with a $ character.
+# When set to True, it will strip the last $ character
+stripdollar=True
+# When debugging is True, it will log the details to the below logfile
+debug=True
+# location of logfile when debugging is enabled
+logfile=c:\Users\gerwoutv\PycharmProjects\cylance\debug.log
